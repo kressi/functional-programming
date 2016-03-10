@@ -48,10 +48,10 @@ let interpreti = function
     | z when z < 0 -> uint32 -z |> interprete |> embed |> invert
     | z -> uint32 z |> interprete |> embed
 
-let add x y = { Minuend=x.Minuend ++ y.Minuend ;
+let add x y = { Minuend=x.Minuend ++ y.Minuend
                 Subtrahend=x.Subtrahend ++ y.Subtrahend }
 
 let sub x y = add x <| invert y
 
-let mul x y = { Minuend=(x.Minuend**y.Minuend) ++ (x.Subtrahend**y.Subtrahend) ;
+let mul x y = { Minuend=(x.Minuend**y.Minuend) ++ (x.Subtrahend**y.Subtrahend)
                 Subtrahend=(x.Minuend**y.Subtrahend) ++ (x.Subtrahend**y.Minuend) }

@@ -4,20 +4,18 @@
 // mathematician John Conway. A FRACTRAN program is an ordered list of positive
 // fractions together with an initial positive integer input n.
 
-type Rational = { Dividend:bigint ; Divisor:bigint }
-
-let rec run (program:List<Rational>) (n:bigint) =
+let rec run (program:List<bigint*bigint>) (n:bigint) =
 
     let rec rmultiply = function
         | [] -> None
-        | { Dividend=dividend ; Divisor=divisor }::tail ->
+        | (divisor,dividend)::tail ->
             match bigint.DivRem(n*divisor, dividend) with
             | quotient, remainder when remainder.IsZero -> Some quotient
             | _ -> rmultiply tail
 
     match rmultiply program with
-    | None -> [n]
-    | Some quotient -> n::(run program quotient)
+    | None -> [int n]
+    | Some quotient -> int n::(run program quotient)
 
-
-run [{Divisor=(bigint 5);Dividend=(bigint 3)};{Divisor=(bigint 2);Dividend=(bigint 5)}] (bigint 72)
+let add = run [(5I,3I);(2I,5I)]
+let multiply = run [(455I,33I);(11I,13I);(1I,11I);(3I,7I);(11I,2I);(1I,3I)]
