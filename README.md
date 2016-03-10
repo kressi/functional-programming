@@ -1,4 +1,4 @@
 # Functional Programming
 
-**Lecture:** Functional Programming - ZHAW
-**Lecturer:** Dr. Dandolo Flumini
+**Lecture:** Functional Programming - ZHAW  
+**Lecturer:** Dr. Dandolo Flumini  
